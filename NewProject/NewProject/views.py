@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # def homePage(request):
 #     data={
@@ -26,4 +26,28 @@ def gallery(request):
 def our_story(request):
     return render(request,"our-story.html")
 def contact(request):
+    try:
+        if request.method=="POST":
+            n=request.POST.get('name')
+            n1=request.POST.get('email')
+            print(n + n1)
+    except:
+        pass
     return render(request,"contact.html")
+
+def form(request):
+    finalans=0
+    try:
+        if request.method=="POST":
+            n=int(request.POST.get('num1'))
+            n1=int(request.POST.get('num2'))
+            finalans=n+n1
+            
+            url="/events/?output={}".format(finalans)
+            return redirect(url)
+    except:
+        pass
+    return render(request, "form.html",{'output':finalans})
+
+def submitForm(request):
+    return HttpResponse(request)

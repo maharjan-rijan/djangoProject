@@ -23,7 +23,8 @@ urlpatterns = [
     path('', views.mainPage, name="home"),
     path('events/', views.events, name="events"),
     path('gallery/',views.gallery, name="gallery"),
-    path('our-story',views.our_story, name="our-story"),
+    path('our-story/',views.our_story, name="our-story"),
     path('contact/',views.contact, name="contact"),
-    
+    path('form/',views.form, name="form"),
+    path('submitForm/',views.submitForm, name="submitForm"),
 ]
