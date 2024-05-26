@@ -1,0 +1,50 @@
+{% extends "app.html" %}
+{% block content %}
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Check Odd Even Number</h2>
+          <ol>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li>Check Odd Even Number</li>
+          </ol>
+        </div>
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Contact Us Section ======= -->
+    <section>
+        <div class="row justify-center">
+                <form method="post">
+                  {% if error %}
+                  <div class="alert alert-danger" role="alert">
+                    Please Enter The Value
+                  </div>
+                  {% endif %}
+                 {% csrf_token %}
+                 <div class="card text-center col-6">
+                  <div class="card-header">
+                    Check Odd Even Number
+                  </div>
+                  <div class="card-body">
+                    <label for="n1">Enter any number:</label>
+                   <input type="text" name="n1" id="n1" class="form-control">
+                    <div class="mt-10">
+                   <button type="submit" class="btn btn-primary">Even | Odd</button>
+                  </div>
+                  </div>
+                  <div class="card-footer text-muted">
+                    <label for="">Your answer is :</label>
+                    <input type="text" value="{{c}}" name="output" id="output" class="form-control">
+                  </div>
+                </div>
+                </form>
+        </div>
+    </section>
+  </main><!-- End #main -->
+  {% endblock %}

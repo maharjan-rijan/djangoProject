@@ -23,14 +23,15 @@
             <div class="col-10" style="margin-left: 30px;">
                 <form method="post" action=" {% url 'submitForm' %}">
                     {% csrf_token %}
-                    <div>
+                    {{form}}
+                    {% comment %} <div>
                         <label for="">Valu1</label>
                         <input type="text" name="num1" class="form-control">
                     </div>
                     <div>
                         <label for="">Valu2</label>
                         <input type="text" name="num2" class="form-control">
-                    </div>
+                    </div> {% endcomment %}
                     <div class="pt-2">
                         <button type="submit">Submit</button>
                     </div>

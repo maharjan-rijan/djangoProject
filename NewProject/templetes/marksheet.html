@@ -1,0 +1,57 @@
+{% extends "app.html" %}
+{% block content %}
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Marksheet</h2>
+          <ol>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li>Marksheet</li>
+          </ol>
+        </div>
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Contact Us Section ======= -->
+    <section>
+        <div class="row">
+                <form method="post">
+                 {% csrf_token %}
+                 <div class="card col-5" style="margin-left:40px;">
+                  <div class="card-header text-center">
+                    Marksheet
+                  </div>
+                  <div class="card-body">
+                    <label for="subject1">Subject 1</label>
+                   <input type="text" name="subject1" id="subject1" value="{{sub1}}" class="form-control">
+                   <label for="subject2">Subject 2</label>
+                   <input type="text" name="subject2" id="subject2" value="{{sub2}}" class="form-control">
+                   <label for="subject3">Subject 3</label>
+                   <input type="text" name="subject3" id="subject3" value="{{sub3}}" class="form-control">
+                   <label for="subject4">Subject 4</label>
+                   <input type="text" name="subject4" id="subject4" value="{{sub4}}" class="form-control">
+                   <label for="subject5">Subject 5</label>
+                   <input type="text" name="subject5" id="subject5" value="{{sub5}}" class="form-control">
+                    <div class="mt-10">
+                   <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Marksheet</button>
+                  </div>
+                  </div>
+                  <div class="card-footer text-muted">
+                    <label for="">Total</label>
+                    <input type="text" value="{{total}}" name="total" id="total" class="form-control">
+                    <label for="">Percentage</label>
+                    <input type="text" value="{{percentage}}" name="per" id="per" class="form-control">
+                    <label for="">Division</label>
+                    <input type="text" value="{{division}}" name="division" id="division" class="form-control">
+                  </div>
+                </div>
+                </form>
+        </div>
+    </section>
+  </main><!-- End #main -->
+  {% endblock %}

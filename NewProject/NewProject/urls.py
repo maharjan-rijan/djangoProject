@@ -27,4 +27,8 @@ urlpatterns = [
     path('contact/',views.contact, name="contact"),
     path('form/',views.form, name="form"),
     path('submitForm/',views.submitForm, name="submitForm"),
+    path('calculator/',views.calculator, name="calculator"),
+    path('evenOdd/',views.evenOdd, name="evenOdd"),
+    path('marksheet/',views.marksheet, name="marksheet"),
+    
 ]
