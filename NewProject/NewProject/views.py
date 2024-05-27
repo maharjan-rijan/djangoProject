@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .forms import usersForm
 from service.models import Service
+from news.models import News
 
 # def homePage(request):
 #     data={
@@ -17,9 +18,11 @@ from service.models import Service
 #     return render(request,"index.html",data)
 
 def mainPage(request):
+    newsData=News.objects.all();
     servicesData=Service.objects.all().order_by('-service_title')[:6]
     data={
-        'servicesData':servicesData
+        'servicesData':servicesData,
+        'newsData':newsData
     }
     return render(request,"index.html",data)
 
@@ -29,8 +32,12 @@ def events(request):
 def gallery(request):
     return render(request,"gallery.html")
 
-def our_story(request):
-    return render(request,"our-story.html")
+def newsDetails(request,id):
+    newsDetails=News.objects.get(id=id)
+    data={
+        'newsDetails':newsDetails
+    }
+    return render(request,"news.html", data)
 
 def contact(request):
     try:

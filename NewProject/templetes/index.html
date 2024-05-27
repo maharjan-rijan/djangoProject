@@ -1,5 +1,11 @@
 {% extends "app.html" %}
 {% block content %}
+
+<marquee style=" padding-top:75px; background-color: red;" onmouseover="stop()" onmouseout="start()">
+  {% for news in newsData %}
+  <a href="/newsDetails/{{ news.id }}" style="color: white; font-weight: bold;">{{news.news_title}} || </a>  &nbsp; &nbsp;
+  {% endfor %}
+</marquee>
   <!-- ======= Hero Section ======= -->
   <section id="hero">
     <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
@@ -63,7 +69,7 @@
               velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
               culpa qui officia deserunt mollit anim id est laborum.
             </p>
-            <a href="our-story.html" class="btn-learn-more">Learn More</a>
+            <a href="news.html" class="btn-learn-more">Learn More</a>
           </div>
         </div>
 
